@@ -21,11 +21,12 @@ int main() {
 
 	al_lock_bitmap(al_get_target_bitmap(), al_get_display_format(display), al_get_display_flags(display));
 
-	for (double i = -2; i < 2; i += 0.005)
+	for (double i = -
+		2; i < 2; i += 0.005)
 		for (double j = -2; j < 2; j += 0.005) {
 			c = complex<double>(i, j);
 			num = mandelbrot(c);
-			al_put_pixel(i*200+400, j*200+400, al_map_rgb(num*num*num, num*10, num*6));
+			al_put_pixel(i*200+400, j*200+400, al_map_rgb(num*num*3, num*10, num/20));
 		};
 	al_unlock_bitmap(al_get_target_bitmap());
 	al_flip_display();
